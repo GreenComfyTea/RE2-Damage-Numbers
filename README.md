@@ -135,7 +135,7 @@
 3. Download the mod:
     * Official release can be downloaded from [Nexus Mods](https://www.nexusmods.com/residentevil42023/mods/84);
     * Nightly builds are available in [this repo](https://github.com/GreenComfyTea/RE2-Health-Bars) and can contain broken functionality, debugging info on screen, bugs and might require the latest [nightly build](https://github.com/praydog/REFramework-nightly/releases) of [REFramework](https://www.nexusmods.com/residentevil42023/mods/12). Use with caution!
-4. Extract the mod from the archive and place it in Resident Evil 2 folder. Final path should look like this: `/RESIDENT EVIL 4  BIOHAZARD RE2/reframework/autorun/Damage_Numbers.lua`
+4. Extract the mod from the archive and place it in Resident Evil 2 folder. Final path should look like this: `/RESIDENT EVIL 2  BIOHAZARD RE2/reframework/autorun/Damage_Numbers.lua`
 
 # How to compile?
 **Prerequisites:**
