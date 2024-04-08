@@ -36,10 +36,10 @@
 		<img alt="Maintenance" src="https://custom-icon-badges.demolab.com/maintenance/yes/2023?logo=tools" />
 	</a>
 	<br>
-	<a href="https://www.nexusmods.com/residentevil42023/mods/12">
-		<img alt="REFramework Dependency" src="https://custom-icon-badges.demolab.com/badge/dependency-REFramework%20v1.460%2B-green?logo=package-dependencies" />
+	<a href="https://nexusmods.com/residentevil22019/mods/1097">
+		<img alt="REFramework Dependency" src="https://custom-icon-badges.demolab.com/badge/dependency-REFramework%20v1.5.3%2B-green?logo=package-dependencies" />
 	</a>
-   	<a href="https://www.nexusmods.com/residentevil42023/mods/83">
+   	<a href="https://nexusmods.com/residentevil22019/mods/1475">
 		<img alt="REFramework Direct2D Dependency" src="https://custom-icon-badges.demolab.com/badge/dependency-REFramework%20Direct2D%20v0.4.0%2B-yellow?logo=package-dependencies" />
 	</a>
 	<br>
@@ -101,7 +101,7 @@
 	<a href="https://twitter.com/greencomfytea">
 		<img alt="Twitter" src="https://img.shields.io/twitter/follow/greencomfytea?logo=twitter" />
 	</a>
-	<a href="https://www.twitch.tv/greencomfytea">
+	<a href="https://twitch.tv/greencomfytea">
 		<img alt="Twitch" src="https://img.shields.io/twitch/status/greencomfytea?logo=twitch" />
 	</a>
 	<br>
@@ -126,12 +126,12 @@
 * **[Nexus Mods](https://www.nexusmods.com/residentevil42023/mods/757)**
 
 # Requirements
-1. [REFramework](https://www.nexusmods.com/residentevil42023/mods/12) (v1.460+);
-2. [REFramework Direct2D](https://www.nexusmods.com/residentevil42023/mods/83) (v0.4.0+).
+1. [REFramework](https://nexusmods.com/residentevil22019/mods/1097) (v1.5.3+);
+2. [REFramework Direct2D](https://nexusmods.com/residentevil22019/mods/1475) (v0.4.0+).
 
 # How to install:
 1. Install [REFramework](https://www.nexusmods.com/residentevil42023/mods/12);
-2. (Optionally) Install [REFramework Direct2D](https://www.nexusmods.com/residentevil42023/mods/83);
+2. (Optionally) Install [REFramework Direct2D](https://nexusmods.com/residentevil22019/mods/1475);
 3. Download the mod:
     * Official release can be downloaded from [Nexus Mods](https://www.nexusmods.com/residentevil42023/mods/84);
     * Nightly builds are available in [this repo](https://github.com/GreenComfyTea/RE2-Health-Bars) and can contain broken functionality, debugging info on screen, bugs and might require the latest [nightly build](https://github.com/praydog/REFramework-nightly/releases) of [REFramework](https://www.nexusmods.com/residentevil42023/mods/12). Use with caution!
