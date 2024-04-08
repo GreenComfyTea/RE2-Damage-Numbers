@@ -80,7 +80,6 @@ function this.init()
 
 			render_during_cutscenes = false,
 			render_when_game_timer_is_paused = false,
-			render_in_mercenaries = false,
 
 			render_when_normal = true,
 			render_when_aiming = true,
@@ -245,6 +244,10 @@ function this.init()
 				color = 0xFF000000
 			}
 		},
+
+		debug = {
+			history_size = 64
+		}
 	};
 end
 

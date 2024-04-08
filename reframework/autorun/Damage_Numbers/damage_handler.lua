@@ -42,11 +42,9 @@ local os = os;
 this.list = {};
 
 local enemy_controller_type_def = sdk.find_type_definition("app.ropeway.EnemyController");
-
 local on_hit_damage_method = enemy_controller_type_def:get_method("HitController_OnHitDamage");
 
 local damage_info_type_def = sdk.find_type_definition("app.Collision.HitController.DamageInfo");
-
 local get_damage_method = damage_info_type_def:get_method("get_Damage");
 local get_position_method = damage_info_type_def:get_method("get_Position");
 
@@ -132,10 +130,6 @@ function this.tick()
 		return;
 	end
 
-	if not cached_config.render_in_mercenaries and game_handler.game.is_mercenaries then
-		return;
-	end
-
 	if not player_handler.player.is_aiming then
 		if not cached_config.render_when_normal then
 			return;
@@ -211,7 +205,7 @@ function this.init_module()
 	customization_menu = require("Damage_Numbers.customization_menu");
 	player_handler = require("Damage_Numbers.player_handler");
 	game_handler = require("Damage_Numbers.game_handler");
-
+	
 	sdk.hook(on_hit_damage_method, function(args)
 		local hit_info = sdk.to_managed_object(args[3]);
 		this.on_damage(hit_info);

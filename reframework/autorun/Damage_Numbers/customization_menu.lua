@@ -3,8 +3,8 @@ local this = {};
 local utils;
 local config;
 local screen;
-local label_customization;
 local keyframe_customization;
+local time;
 
 local sdk = sdk;
 local tostring = tostring;
@@ -107,9 +107,6 @@ function this.draw()
 		config.reset();
 		config_changed = true;
 	end
-
-	imgui.same_line();
-	imgui.text("Status: " .. tostring(this.status));
 
 	changed, cached_config.enabled = imgui.checkbox("Enabled", cached_config.enabled);
 	config_changed = config_changed or changed;
@@ -284,7 +281,11 @@ function this.draw()
 		
 		imgui.tree_pop();
 	end
-	
+
+	changed = this.draw_debug();
+	config_changed = config_changed or changed;
+
+	imgui.new_line();
 	imgui.end_window();
 
 	if config_changed or window_changed then
@@ -292,12 +293,69 @@ function this.draw()
 	end
 end
 
+function this.draw_debug()
+	local cached_config = config.current_config.debug;
+
+	local changed = false;
+	local config_changed = false;
+
+	if imgui.tree_node("Debug") then
+		
+		imgui.text_colored("Current Time:", 0xFFAAAA66);
+		imgui.same_line();
+		imgui.text(string.format("%.3fs", time.total_elapsed_script_seconds));
+
+		if error_handler.is_empty then
+			imgui.text("Everything seems to be OK!");
+		else
+			for error_key, error in pairs(error_handler.list) do
+
+				imgui.button(string.format("%.3fs", error.time));
+				imgui.same_line();
+				imgui.text_colored(error_key, 0xFFAA66AA);
+				imgui.same_line();
+				imgui.text(error.message);
+			end
+		end
+
+		if imgui.tree_node("History") then
+
+			changed, cached_config.history_size = imgui.drag_int(
+				"History Size", cached_config.history_size, 1, 0, 1024);
+
+			config_changed = config_changed or changed;
+
+			if changed then
+				error_handler.history = {};
+			end
+
+			for index, error in pairs(error_handler.history) do
+				imgui.text_colored(index, 0xFF66AA66);
+				imgui.same_line();
+				imgui.button(string.format("%.3fs", error.time));
+				imgui.same_line();
+				imgui.text_colored(error.key, 0xFFAA66AA);
+				imgui.same_line();
+				imgui.text(error.message);
+			end
+
+
+			imgui.tree_pop();
+		end
+
+		imgui.tree_pop();
+	end
+
+	return config_changed;
+end
+
+
 function this.init_module()
 	utils = require("Damage_Numbers.utils");
 	config = require("Damage_Numbers.config");
 	screen = require("Damage_Numbers.screen");
-	label_customization = require("Damage_Numbers.label_customization");
 	keyframe_customization = require("Damage_Numbers.keyframe_customization");
+	time = require("Damage_Numbers.time");
 
 	this.init();
 end

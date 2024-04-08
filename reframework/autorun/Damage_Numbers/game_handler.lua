@@ -3,6 +3,7 @@ local this = {};
 local singletons;
 local customization_menu;
 local time;
+local error_handler;
 
 local sdk = sdk;
 local tostring = tostring;
@@ -47,7 +48,7 @@ local measure_pause_spending_time_field = game_clock_type_def:get_field("_Measur
 function this.update()
 	local game_clock = singletons.game_clock;
 	if game_clock == nil then
-		customization_menu.status = "[game_handler.update] No GameClock";
+		error_handler.report("game_handler.update", "No GameClock");
 		return;
 	end
 
@@ -82,6 +83,7 @@ function this.init_module()
 	singletons = require("Damage_Numbers.singletons");
 	customization_menu = require("Damage_Numbers.customization_menu");
 	time = require("Damage_Numbers.time");
+	error_handler = require("Damage_Numbers.error_handler");
 end
 
 return this;

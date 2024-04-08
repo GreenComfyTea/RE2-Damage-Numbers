@@ -36,8 +36,8 @@ local utils = require("Damage_Numbers.utils");
 local config = require("Damage_Numbers.config");
 local screen = require("Damage_Numbers.screen");
 local singletons = require("Damage_Numbers.singletons");
+local error_handler = require("Damage_Numbers.error_handler");
 
-local label_customization = require("Damage_Numbers.label_customization");
 local keyframe_customization = require("Damage_Numbers.keyframe_customization");
 local customization_menu = require("Damage_Numbers.customization_menu");
 
@@ -54,8 +54,8 @@ utils.init_module();
 config.init_module();
 screen.init_module();
 singletons.init_module();
+error_handler.init_module();
 
-label_customization.init_module();
 keyframe_customization.init_module();
 customization_menu.init_module();
 
@@ -88,12 +88,6 @@ local function main_loop()
 
 	player_handler.tick();
 	damage_handler.tick();
-
-	xy = string.format("\ncutscene: %s\npause: %s\naiming: %s",
-		tostring(game_handler.game.is_cutscene_playing),
-		tostring(game_handler.game.is_paused),
-		tostring(player_handler.player.is_aiming)
-	);
 end
 
 -- #endregion
@@ -151,9 +145,9 @@ end);
 
 time.init_global_timers();
 
-re.on_frame(function()
-	if xy ~= "" then
-		draw.text("Debug:\n" .. tostring(xy), 256, 71, 0xFF000000);	
-		draw.text("Debug:\n" .. tostring(xy), 255, 70, 0xFFFFFFFF);
-	end
-end);
+-- re.on_frame(function()
+-- 	if xy ~= "" then
+-- 		draw.text("Debug:\n" .. tostring(xy), 256, 71, 0xFF000000);	
+-- 		draw.text("Debug:\n" .. tostring(xy), 255, 70, 0xFFFFFFFF);
+-- 	end
+-- end);

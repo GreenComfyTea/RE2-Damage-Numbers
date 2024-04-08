@@ -6,6 +6,7 @@ local config;
 local customization_menu;
 local enemy_handler;
 local time;
+local error_handler;
 
 local sdk = sdk;
 local tostring = tostring;
@@ -52,7 +53,7 @@ function this.tick()
 	local player_manager = singletons.player_manager;
 
 	if player_manager == nil then
-		customization_menu.status = "[player_handler.tick] No PlayerManager";
+		error_handler.report("player_handler.tick", "No PlayerManager");
 		return;
 	end
 
@@ -63,7 +64,7 @@ function this.update()
 	local player_manager = singletons.player_manager;
 
 	if player_manager == nil then
-		customization_menu.status = "[player_handler.update_player_data] No PlayerManager";
+		error_handler.report("player_handler.update", "No PlayerManager");
 		return;
 	end
 
@@ -74,7 +75,7 @@ function this.update_position(player_manager)
 	local position = get_current_position_method:call(player_manager);
 
 	if position == nil then
-		customization_menu.status = "[player_handler.update_position] No Position";
+		error_handler.report("player_handler.update_position", "No Position");
 		return;
 	end
 
@@ -83,15 +84,15 @@ end
 
 function this.update_is_aiming(player_manager)
 	local player_condition = get_current_player_condition_method:call(player_manager);
-
 	if player_condition == nil then
+		error_handler.report("player_handler.update_is_aiming", "No PlayerCondition");
 		return;
 	end
 
 	local is_hold = get_is_hold_method:call(player_condition);
 
 	if is_hold == nil then
-		customization_menu.status = "[player_handler.update_aim] No IsHold";
+		error_handler.report("player_handler.update_is_aiming", "No IsHold");
 		return;
 	end
 
@@ -102,6 +103,7 @@ end
 function this.init_module()
 	singletons = require("Damage_Numbers.singletons");
 	customization_menu = require("Damage_Numbers.customization_menu");
+	error_handler = require("Damage_Numbers.error_handler");
 end
 
 return this;
