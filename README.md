@@ -148,7 +148,7 @@
 + [lua-amalg](https://github.com/siffiejoe/lua-amalg)    
 + [Lua 5.4+](https://www.lua.org/)  
 
-**Compilation command (replace the paths to `lua54.exe`, `amalg.lua` to yours, run it inside `autorun` folder using `cmd`):**
+**Compilation command (replace the paths to `lua54.exe`, `amalg.lua` to yours, run it inside `autorun` folder with `cmd`):**
 
 `"D:\Programs\Lua Amalg\lua54.exe" "D:\Programs\Lua Amalg\amalg.lua" -o Damage_Numbers_precompiled.lua -d -s Damage_Numbers.lua Damage_Numbers.config Damage_Numbers.customization_menu Damage_Numbers.damage_handler Damage_Numbers.drawing  Damage_Numbers.error_handler Damage_Numbers.game_handler Damage_Numbers.keyframe_customization Damage_Numbers.keyframe_handler Damage_Numbers.player_handler Damage_Numbers.screen Damage_Numbers.singletons Damage_Numbers.time Damage_Numbers.utils`
 
