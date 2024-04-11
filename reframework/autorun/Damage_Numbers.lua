@@ -144,10 +144,3 @@ end);
 ----------------------------D2D------------------------------
 
 time.init_global_timers();
-
--- re.on_frame(function()
--- 	if xy ~= "" then
--- 		draw.text("Debug:\n" .. tostring(xy), 256, 71, 0xFF000000);	
--- 		draw.text("Debug:\n" .. tostring(xy), 255, 70, 0xFFFFFFFF);
--- 	end
--- end);

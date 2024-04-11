@@ -182,8 +182,8 @@ function this.draw()
 			cached_config.settings.render_during_cutscenes);
 		config_changed = config_changed or changed;
 
-		changed, cached_config.settings.render_when_game_timer_is_paused = imgui.checkbox("Render when Game Is Paused",
-			cached_config.settings.render_when_game_timer_is_paused);
+		changed, cached_config.settings.render_when_game_is_paused = imgui.checkbox("Render when Game Is Paused",
+			cached_config.settings.render_when_game_is_paused);
 		config_changed = config_changed or changed;
 		
 		imgui.end_rect(5);
@@ -197,6 +197,14 @@ function this.draw()
 		changed, cached_config.settings.render_when_aiming = imgui.checkbox("Render when Aiming",
 			cached_config.settings.render_when_aiming);
 		config_changed = config_changed or changed;
+
+		imgui.end_rect(5);
+		imgui.new_line();
+		imgui.begin_rect()
+
+		changed, cached_config.settings.include_dead_enemies = imgui.checkbox("Include Dead Enemies",
+		cached_config.settings.include_dead_enemies);
+	config_changed = config_changed or changed;
 
 		imgui.end_rect(5);
 		imgui.new_line();

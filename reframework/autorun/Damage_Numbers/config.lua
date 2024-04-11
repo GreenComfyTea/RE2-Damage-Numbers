@@ -79,10 +79,12 @@ function this.init()
 			use_d2d_if_available = true,
 
 			render_during_cutscenes = false,
-			render_when_game_timer_is_paused = false,
+			render_when_game_is_paused = false,
 
 			render_when_normal = true,
 			render_when_aiming = true,
+
+			include_dead_enemies = false,
 
 			display_delay = 0.022222,
 			-- display_duration = 0.988888,

@@ -8,6 +8,7 @@ local drawing;
 local customization_menu;
 local player_handler;
 local game_handler;
+local error_handler;
 
 local sdk = sdk;
 local tostring = tostring;
@@ -43,10 +44,14 @@ this.list = {};
 
 local enemy_controller_type_def = sdk.find_type_definition("app.ropeway.EnemyController");
 local on_hit_damage_method = enemy_controller_type_def:get_method("HitController_OnHitDamage");
+local get_hit_point_method = enemy_controller_type_def:get_method("get_HitPoint");
 
 local damage_info_type_def = sdk.find_type_definition("app.Collision.HitController.DamageInfo");
 local get_damage_method = damage_info_type_def:get_method("get_Damage");
 local get_position_method = damage_info_type_def:get_method("get_Position");
+
+local hit_point_controller_type_def = get_hit_point_method:get_return_type();
+local get_is_dead_method = hit_point_controller_type_def:get_method("get_IsDead");
 
 function this.new(damage, hit_position)
 	local cached_config = config.current_config;
@@ -169,16 +174,21 @@ function this.tick()
 	end
 end
 
-function this.on_damage(hit_info)
+function this.on_hit_damage(enemy_controller, hit_info)
+	if enemy_controller == nil then
+		error_handler.report("damage_handler.on_hit_damage", "No EnemyController");
+		return;
+	end
+
 	if hit_info == nil then
-		customization_menu.status = "[damage_handler.on_damage] No HitInfo";
+		error_handler.report("damage_handler.on_hit_damage", "No HitInfo");
 		return;
 	end
 
 	local damage = get_damage_method:call(hit_info);
 
 	if damage == nil then
-		customization_menu.status = "[damage_handler.on_damage] No Damage";
+		error_handler.report("damage_handler.on_hit_damage", "No Damage");
 		return;
 	end
 
@@ -186,10 +196,28 @@ function this.on_damage(hit_info)
 		return;
 	end
 
+	if not config.current_config.settings.include_dead_enemies then
+		local hit_point_controller = get_hit_point_method:call(enemy_controller);
+		if hit_point_controller == nil then
+			error_handler.report("damage_handler.on_hit_damage", "No HitPointController");
+			return;
+		end
+
+		local is_dead = get_is_dead_method:call(hit_point_controller);
+		if is_dead == nil then
+			error_handler.report("damage_handler.on_hit_damage", "No IsDead");
+			return;
+		end
+
+		if is_dead then
+			return;
+		end
+	end
+
 	local position = get_position_method:call(hit_info);
 
 	if position == nil then
-		customization_menu.status = "[damage_handler.on_damage] No Position";
+		error_handler.report("damage_handler.on_hit_damage", "No Position");
 		return;
 	end
 
@@ -202,13 +230,14 @@ function this.init_module()
 	time = require("Damage_Numbers.time");
 	keyframe_handler = require("Damage_Numbers.keyframe_handler");
 	drawing = require("Damage_Numbers.drawing");
-	customization_menu = require("Damage_Numbers.customization_menu");
 	player_handler = require("Damage_Numbers.player_handler");
 	game_handler = require("Damage_Numbers.game_handler");
+	error_handler = require("Damage_Numbers.error_handler");
 	
 	sdk.hook(on_hit_damage_method, function(args)
+		local enemy_controller = sdk.to_managed_object(args[2]);
 		local hit_info = sdk.to_managed_object(args[3]);
-		this.on_damage(hit_info);
+		this.on_hit_damage(enemy_controller, hit_info);
 
 	end, function(retval)
 		return retval;
