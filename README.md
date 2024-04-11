@@ -92,8 +92,8 @@
 	</a>
 	<br>
 	<br>
-	<a href="https://www.nexusmods.com/residentevil42023/mods/757">
-		<img alt="Website" src="https://custom-icon-badges.demolab.com/website?down_color=red&down_message=down&up_color=brightgreen&up_message=up&logo=link&url=https://www.nexusmods.com/residentevil42023/mods/757" />
+	<a href="https://nexusmods.com/residentevil22019/mods/1479">
+		<img alt="Website" src="https://custom-icon-badges.demolab.com/website?down_color=red&down_message=down&up_color=brightgreen&up_message=up&logo=link&url=https://nexusmods.com/residentevil22019/mods/1479" />
 	</a>
 	<a href="https://github.com/greencomfytea?tab=followers">
 		<img alt="Followers" src="https://custom-icon-badges.demolab.com/github/followers/greencomfytea?logo=people" />
@@ -123,7 +123,7 @@
 </p>
 
 # Links
-* **[Nexus Mods](https://www.nexusmods.com/residentevil42023/mods/757)**
+* **[Nexus Mods](https://nexusmods.com/residentevil22019/mods/1479)**
 
 # Requirements
 1. [REFramework](https://nexusmods.com/residentevil22019/mods/1097) (v1.5.3+);
@@ -139,7 +139,7 @@
 >**:pushpin: Steam Deck:** I've seen people getting it working but I don't have the exact instructions. You will have to figure it out yourself and/or search the nexus pages for information ([REFramework](https://www.nexusmods.com/monsterhunterrise/mods/26?tab=description), [REFramework Direct2D](https://www.nexusmods.com/monsterhunterrise/mods/134)).
 
 3. Download the mod:
-    * Official release can be downloaded from [Nexus Mods](https://www.nexusmods.com/residentevil42023/mods/84);
+    * Official release can be downloaded from [Nexus Mods](https://nexusmods.com/residentevil22019/mods/1479);
     * Nightly builds are available in [this repo](https://github.com/GreenComfyTea/RE2-Health-Bars) and can contain broken functionality, debugging info on screen, bugs and might require the latest [nightly build](https://github.com/praydog/REFramework-nightly/releases) of [REFramework](https://www.nexusmods.com/residentevil42023/mods/12). Use with caution!
 4. Extract the mod from the archive and place it in Resident Evil 4 folder. Final path should look like this: `/RESIDENT EVIL 2  BIOHAZARD RE2/reframework/autorun/Damage_Numbers.lua`
 
