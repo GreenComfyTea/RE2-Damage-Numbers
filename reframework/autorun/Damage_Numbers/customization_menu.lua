@@ -169,11 +169,13 @@ function this.draw()
 		end
 
 		imgui.new_line();
+		imgui.begin_rect()
 
 		changed, cached_config.settings.use_d2d_if_available = imgui.checkbox("Use Direct2D Renderer if Available",
 			cached_config.settings.use_d2d_if_available);
 		config_changed = config_changed or changed;
 
+		imgui.end_rect(5);
 		imgui.new_line();
 		imgui.begin_rect()
 
