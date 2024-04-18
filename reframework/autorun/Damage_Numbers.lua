@@ -84,8 +84,6 @@ local function main_loop()
 		return;
 	end
 
-	customization_menu.status = "OK";
-
 	player_handler.tick();
 	damage_handler.tick();
 end

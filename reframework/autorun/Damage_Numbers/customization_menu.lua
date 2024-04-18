@@ -5,6 +5,7 @@ local config;
 local screen;
 local keyframe_customization;
 local time;
+local error_handler;
 
 local sdk = sdk;
 local tostring = tostring;
@@ -35,8 +36,6 @@ local draw = draw;
 local Vector2f = Vector2f;
 local reframework = reframework;
 local os = os;
-
-this.status = "OK";
 
 this.font = nil;
 this.font_range = {0x1, 0xFFFF, 0};
@@ -364,6 +363,7 @@ function this.init_module()
 	screen = require("Damage_Numbers.screen");
 	keyframe_customization = require("Damage_Numbers.keyframe_customization");
 	time = require("Damage_Numbers.time");
+	error_handler = require("Damage_Numbers.error_handler");
 
 	this.init();
 end

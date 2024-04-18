@@ -1,6 +1,6 @@
 local this = {};
 
-local customization_menu;
+local error_handler;
 
 local sdk = sdk;
 local tostring = tostring;
@@ -46,7 +46,7 @@ end
 function this.update_player_manager()
 	this.player_manager = sdk.get_managed_singleton(player_manager_name);
 	if this.player_manager == nil then
-		customization_menu.status = "[singletons.update_player_manager] No PlayerManager";
+		error_handler.report("[singletons.update_player_manager] No PlayerManager");
 	end
 
 	return this.player_manager;
@@ -55,14 +55,14 @@ end
 function this.update_game_clock()
 	this.game_clock = sdk.get_managed_singleton(game_clock_name);
 	if this.game_clock == nil then
-		customization_menu.status = "[singletons.update_game_clock] No GameClock";
+		error_handler.report("[singletons.update_game_clock] No GameClock");
 	end
 
 	return this.game_clock;
 end
 
 function this.init_module()
-	customization_menu = require("Damage_Numbers.customization_menu");
+	error_handler = require("Damage_Numbers.error_handler");
 
 	this.update();
 end
