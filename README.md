@@ -37,7 +37,7 @@
 	</a>
 	<br>
 	<a href="https://nexusmods.com/residentevil22019/mods/1097">
-		<img alt="REFramework Dependency" src="https://custom-icon-badges.demolab.com/badge/dependency-REFramework%20v1.5.3%2B-green?logo=package-dependencies" />
+		<img alt="REFramework Dependency" src="https://custom-icon-badges.demolab.com/badge/dependency-REFramework%20v1.5.4%2B-green?logo=package-dependencies" />
 	</a>
    	<a href="https://nexusmods.com/residentevil22019/mods/1475">
 		<img alt="REFramework Direct2D Dependency" src="https://custom-icon-badges.demolab.com/badge/dependency-REFramework%20Direct2D%20v1.0.1%2B-yellow?logo=package-dependencies" />
@@ -126,7 +126,7 @@
 * **[Nexus Mods](https://nexusmods.com/residentevil22019/mods/1479)**
 
 # Requirements
-1. [REFramework](https://nexusmods.com/residentevil22019/mods/1097) (v1.5.3+);
+1. [REFramework](https://nexusmods.com/residentevil22019/mods/1097) ([Nightly](https://github.com/praydog/REFramework-nightly/releases) v1.5.4+);
 2. [REFramework Direct2D](https://nexusmods.com/residentevil22019/mods/1475) (v1.0.1+).
 
 # How to install:
@@ -136,12 +136,12 @@
 
 >**:pushpin: Linux:** Latest Experimental Proton seems to have it working normally as well (https://github.com/cursey/reframework-d2d/issues/5).
 
->**:pushpin: Steam Deck:** I've seen people getting it working but I don't have the exact instructions. You will have to figure it out yourself and/or search the nexus pages for information ([REFramework](https://www.nexusmods.com/monsterhunterrise/mods/26?tab=description), [REFramework Direct2D](https://www.nexusmods.com/monsterhunterrise/mods/134)).
+>**:pushpin: Steam Deck:** I've seen people getting it working but I don't have the exact instructions. You will have to figure it out yourself and/or search the nexus pages for information ([REFramework](https://nexusmods.com/residentevil22019/mods/1097), [REFramework Direct2D](https://www.nexusmods.com/monsterhunterrise/mods/134)).
 
 3. Download the mod:
     * Official release can be downloaded from [Nexus Mods](https://nexusmods.com/residentevil22019/mods/1479);
-    * Nightly builds are available in [this repo](https://github.com/GreenComfyTea/RE2-Health-Bars) and can contain broken functionality, debugging info on screen, bugs and might require the latest [nightly build](https://github.com/praydog/REFramework-nightly/releases) of [REFramework](https://www.nexusmods.com/residentevil42023/mods/12). Use with caution!
-4. Extract the mod from the archive and place it in Resident Evil 4 folder. Final path should look like this: `/RESIDENT EVIL 2  BIOHAZARD RE2/reframework/autorun/Damage_Numbers.lua`
+    * Nightly builds are available in [this repo](https://github.com/GreenComfyTea/RE2-Health-Bars) and can contain broken functionality, debugging info on screen, bugs and might require the latest [nightly build](https://github.com/praydog/REFramework-nightly/releases) of [REFramework](https://nexusmods.com/residentevil22019/mods/1097). Use with caution!
+4. Extract the mod from the archive and place it in Resident Evil 2 folder. Final path should look like this: `/RESIDENT EVIL 2  BIOHAZARD RE2/reframework/autorun/Damage_Numbers.lua`
 
 # How to compile?
 **Prerequisites:**
